@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #050505;
+    --bg-secondary: #101010;
+    --gold-primary: #E7C58E;
+    --gold-secondary: #B99A68;
+    --border-color: #292929;
+  }
+
+  body {
+    background-color: #050505;
+    color: #FFFFFF;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #292929;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B99A68;
+  }
+}
+
+/* Technical typography utility classes */
+.font-michroma {
+  font-family: 'Michroma', sans-serif;
+}
+
+.font-mono-tech {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Industrial Grid & Vignette Patterns */
+.bg-industrial-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(231, 197, 142, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(231, 197, 142, 0.03) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(231, 197, 142, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Subtle gold scanline effect for camera views */
+.scanline-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(231, 197, 142, 0.03) 50%,
+    rgba(231, 197, 142, 0.03)
+  );
+  background-size: 100% 4px;
+}
+
+/* Gold corner crosshairs */
+.gold-corner-bracket {
+  position: relative;
+}
+.gold-corner-bracket::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 1.5px solid #E7C58E;
+  border-left: 1.5px solid #E7C58E;
+}
+.gold-corner-bracket::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 1.5px solid #E7C58E;
+  border-right: 1.5px solid #E7C58E;
+}
+
+/* Pulsing radar dot */
+@keyframes radar-pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0.4; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-radar-pulse {
+  animation: radar-pulse 2.5s infinite ease-in-out;
+}
+
